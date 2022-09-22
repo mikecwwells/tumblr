@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>{Title}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+    </head>
+    <body bgcolor="#FEFEFE">
+    <center>
+    <font color="#454545" face="sans-serif" size="4">
+        <img src="{Favicon}">
+        <h1><font color="green"><u>{Title}</u></font></h1>
+
+        {block:Description}
+            <p id="description"><b><i>{Description}</i></b></p>
+            <a href="/">Home</a>
+             | 
+            <a href="/archive">Archive</a>
+             | 
+            <a href="https://www.tumblr.com/followed/by/zulubunsen">Following</a>
+             | 
+            <a href="https://www.tumblr.com/liked/by/zulubunsen">Likes</a>
+        {/block:Description}
+        <hr size="5px" noshade>
+        <ul id="posts" type="square">
+            {block:Posts inlineMediaWidth="500" inlineNestedMediaWidth="250"}
+                {block:Text}
+                    <li class="post text">
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+                        {Body}
+                        {block:Tags}
+                            <li>
+                                <small><a href="{TagURL}">#{Tag}</a></small>
+                            </li>
+                        {/block:Tags}
+                        {block:Date}
+                            <small>{12Hour}:{Minutes} {AmPm} on {ShortDayOfWeek}, {ShortMonth}. {DayOfMonth}<sup>{DayOfMonthSuffix}</sup>, {Year}</small>
+                        {/block:Date}
+                        <small> | {NoteCountWithLabel}</small> <small> | <a href="{Permalink}">🔗</a></small>
+                    <br>
+                    {PostNotes}
+                    </li>
+                    <hr size="2.5px" width="50%" noshade>
+                {/block:Text}
+            {/block:Posts}
+        </ul>
+        <hr size="5px" noshade>
+        <p id="footer">
+            {block:PreviousPage}
+                <a href="{PreviousPage}"> ← </a>
+            {/block:PreviousPage}{block:NextPage}
+                <a href="{NextPage}"> → </a>
+            {/block:NextPage}
+        </p>
+    
+    </font>
+    </center>
+    </body>
+</html>
